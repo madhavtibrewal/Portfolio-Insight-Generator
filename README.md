@@ -1,3 +1,6 @@
+# URL
+https://portfolio-insight-generator-z5xkvpgrvrxlvdgef3zxbw.streamlit.app/
+
 # Portfolio Insights Generator
 
 Built a Python app that processes transaction data, analyzes trading patterns, and generates AI insights. Simple pipeline: load CSV → clean → analyze → generate insights with LLM.
