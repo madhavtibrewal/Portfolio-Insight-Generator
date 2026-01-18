@@ -1,0 +1,6 @@
+sample_transactions.csv
+temp_transactions.csv
+.env
+.venv
+__pycache__/
+venv/
