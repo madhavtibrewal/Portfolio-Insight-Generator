@@ -569,7 +569,7 @@ class PortfolioDashboard:
             st.write("")  # Spacing
             st.write("")  # Spacing
             generate_disabled = insights_gen is None
-            if st.button("Generate Insights", type="primary", width='stretch', disabled=generate_disabled):
+            if st.button("Generate Insights", type="primary", disabled=generate_disabled):
                 if insights_gen:
                     with st.spinner("Generating AI insights. This may take a few seconds..."):
                         try:
@@ -656,7 +656,7 @@ class PortfolioDashboard:
             st.subheader("Data Preview (First 100 rows)")
             preview_data = data.head(100).copy()
             preview_data['timestamp'] = preview_data['timestamp'].dt.strftime('%Y-%m-%d %H:%M:%S')
-            st.dataframe(preview_data, use_container_width=True)
+            st.dataframe(preview_data, width='stretch')
             
             # Data statistics
             st.subheader("Data Statistics")
@@ -669,14 +669,14 @@ class PortfolioDashboard:
                     'Non-Null Count': data.notnull().sum().values,
                     'Data Type': [str(dtype) for dtype in data.dtypes.values]
                 })
-                st.dataframe(col_info, use_container_width=True)
+                st.dataframe(col_info, width='stretch')
             
             with col2:
                 st.write("**Summary Statistics:**")
                 numeric_cols = data.select_dtypes(include=[np.number]).columns
                 if len(numeric_cols) > 0:
                     stats_data = data[numeric_cols].describe()
-                    st.dataframe(stats_data, use_container_width=True)
+                    st.dataframe(stats_data, width='stretch')
                 else:
                     st.info("No numeric columns found")
             
